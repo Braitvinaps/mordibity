@@ -1,0 +1,21 @@
+{
+  "name": "krista",
+  "version": "1.0.0",
+  "description": "",
+  "main": "service.js",
+  "type": "module",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.2",
+    "mysql2": "^2.3.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  },
+  "scripts": {
+    "start": "node service.js",
+    "serve": "nodemon servise.js"
+  },
+  "author": "Alexey Britvin <britvinaps@gmail.com>",
+  "license": "ISC"
+}
