@@ -1,5 +1,5 @@
 # mordibity
 Стэк:
-SQ + Node.js + Express.js + React.Js
+SQL + Node.js + Express.js + React.Js
 
 Выводит таблицу из базы данных, со статисткой больных по регионам
