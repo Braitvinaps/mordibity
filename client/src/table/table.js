@@ -1,18 +1,18 @@
 import React from "react"
 
-const Table = ({data}) => {
+const Table = ({data, sortData}) => {
     return (
         <div>
              <table className="table table-bordered">
           <thead>
             <tr>
-              <th scope="col">Дата</th>
-              <th scope="col">Cубъект</th>
-              <th scope="col">Больница</th>
-              <th scope="col">Болезнь</th>
-              <th scope="col">Заболевшие</th>
-              <th scope="col">Выздоровевшие</th>
-              <th scope="col">Тенденция</th>
+              <th scope="col" onClick={() => {sortData('date')}}>Дата</th>
+              <th scope="col" onClick={() => {sortData('territory')}}>Cубъект</th>
+              <th scope="col" onClick={() => {sortData('hospital')}}>Больница</th>
+              <th scope="col" onClick={() => {sortData('disease')}}>Болезнь</th>
+              <th scope="col" onClick={() => {sortData('patients')}}>Заболевшие</th>
+              <th scope="col" onClick={() => {sortData('issued')}}>Выздоровевшие</th>
+              <th scope="col" onClick={() => {sortData('trend')}}>Тенденция</th>
             </tr>
           </thead>
           {

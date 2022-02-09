@@ -10,15 +10,18 @@ import Search from "./search/search"
 function App() {
   const url = 'http://localhost:4000/'
 
-
   const [data, setData] = useState([])
   const [isLoading, setIsLoading] = useState(false)
 
-  const [value, setValue] = useState('')
+  const [value, setValue] = useState('') // state для поиска
 
   const [currentPage, setCurrentPage] = useState(1)
   const [dataPage] = useState(35)
 
+  const [dirSort, setDirSort] = useState(true)
+
+
+  // получение иформации с сервера
   useEffect(() => {
     const getData = async () => {
       setIsLoading(true)
@@ -29,6 +32,8 @@ function App() {
     getData()
   }, [])
 
+
+  // пагинация
   const filteredData = data.filter((name) => {
     return name.territory.toLowerCase().includes(value.toLocaleLowerCase())
   })
@@ -39,12 +44,26 @@ function App() {
 
   const paginate = pageNumber => setCurrentPage(pageNumber)
 
+
+  // сортировка каждого столбца
+  const sortData = (field) => {
+    const copyData = filteredData.concat()
+    if (dirSort) {
+      copyData.sort((a, b) => a[field] > b[field] ? 1 : -1)
+    } else {
+      copyData.sort((a, b) => a[field] < b[field] ? 1 : -1)
+    }
+    setData(copyData)
+    setDirSort(!dirSort)
+  }
+
   return (
     <div className="container mt-5">
       <h1>Статистика заболеваемости по регионам</h1>
 
       <Search
         setValue={setValue}
+        value={value}
       />
       <Pagination
         dataPage={dataPage}
@@ -55,9 +74,9 @@ function App() {
         <Spinner /> :
         <Table
           data={currentData}
+          sortData={sortData}
         />
       }
-
     </div >
   )
 }
