@@ -28,7 +28,7 @@ app.get('/', async (req, res) => {
         const data = await db.query(dbQuery)
         res.send(data[0])
     } catch (error) {
-        console.error('Error >>', error)
+        console.error('SQL error >>', error)
     }
 })
 
