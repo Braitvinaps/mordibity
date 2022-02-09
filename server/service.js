@@ -24,8 +24,12 @@ ORDER BY date DESC`
 app.use(cors())
 
 app.get('/', async (req, res) => {
-    const data = await db.query(dbQuery)
-    res.send(data[0])
+    try {
+        const data = await db.query(dbQuery)
+        res.send(data[0])
+    } catch (error) {
+        console.error('Error >>', error)
+    }
 })
 
 app.listen(PORT, () => {

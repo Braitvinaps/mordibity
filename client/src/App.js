@@ -9,13 +9,17 @@ function App() {
   
 
   const [data, setData] = useState([])
-  const [isLoading, setIsLoading] = useState(true)
+  const [isLoading, setIsLoading] = useState(false)
 
   useEffect(() => {
     axios.get(url)
       .then((res) => {
+        setIsLoading(true)
         setData(res.data)
         setIsLoading(false)
+      })
+      .catch((err) => {
+        console.log('Error server >>>', err)
       })
   }, [])
 
