@@ -46,8 +46,8 @@ const Table = ({ data, sortData, dirSort }) => {
             return (
               <tbody key={Math.random() + date}>
                 <tr>
-                  <th>{formatDate(date)} </th>
-                  <th>{territory}</th>
+                  <td>{formatDate(date)} </td>
+                  <td>{territory}</td>
                   {
                     hospital.length < 30 ?
                       <td>{hospital}</td> :
