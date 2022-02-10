@@ -4,7 +4,7 @@ import cors from "cors"
 
 const PORT = 4000
 
-const db = mysql2.createPool({
+const db = mysql2.createPool({ // создаем пул для запроса к БД
     host: 'localhost',
     user: 'root',
     database: 'morbidity',
@@ -13,7 +13,8 @@ const db = mysql2.createPool({
 
 const app = express()
 
-const dbQuery = `
+// формулируем запрос нужных данных из БД
+const dbQuery = ` 
 SELECT statistics.date AS date, territory.parent_id AS parent_id, territory.name AS territory, hospital.name AS hospital, disease.name AS disease, statistics.patients AS patients, statistics.issued AS issued, statistics.issued - statistics.patients AS trend 
 FROM territory 
 JOIN hospital ON territory.id = hospital.terr_id 
