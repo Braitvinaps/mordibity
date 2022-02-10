@@ -51,7 +51,9 @@ const Table = ({ data, sortData, dirSort }) => {
                   {
                     hospital.length < 30 ?
                       <td>{hospital}</td> :
-                      <td>{hospital.slice(0, 30) + '....'}</td>
+                      <td dat-toggle="tooltip" title={hospital}>
+                        {hospital.slice(0, 30) + '....'}
+                      </td>
                   }
                   <td>{disease}</td>
                   <td>{patients}</td>
