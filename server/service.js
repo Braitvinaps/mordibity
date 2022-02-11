@@ -33,6 +33,7 @@ app.get('/', async (req, res) => {
     }
 })
 
+// заускаем сервер на 4000 порту
 app.listen(PORT, () => {
     console.log(`Server has been started on port ${PORT}....`)
 })
