@@ -1,10 +1,10 @@
 import express from "express"
 import mysql2 from "mysql2/promise"
 import cors from "cors"
-
 const PORT = 4000
 
-const db = mysql2.createPool({ // создаем пул для запроса к БД
+// создаем пул для запроса к БД
+const db = mysql2.createPool({ 
     host: 'localhost',
     user: 'root',
     database: 'morbidity',
