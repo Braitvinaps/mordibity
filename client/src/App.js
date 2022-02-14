@@ -32,15 +32,15 @@ function App() {
     getData()
   }, [])
 
-
-  // пагинация
+ // поиск
   const filteredData = data.filter((name) => {
     return name.territory.toLowerCase().includes(value.toLocaleLowerCase())
   })
 
-  const lastDataPage = currentPage * dataPage
+  // пагинация
+  const lastDataIndex = currentPage * dataPage
   const firstDataIndex = lastDataPage - dataPage
-  const currentData = filteredData.slice(firstDataIndex, lastDataPage)
+  const currentData = filteredData.slice(firstDataIndex, lastDataIndex)
 
   const paginate = pageNumber => setCurrentPage(pageNumber)
 
