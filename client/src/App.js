@@ -32,28 +32,28 @@ function App() {
     getData()
   }, [])
 
+  const copyData = data.concat()
 
-  // пагинация
-  const filteredData = data.filter((name) => {
+  // живой поиск
+  const filteredData = copyData.filter((name) => {
     return name.territory.toLowerCase().includes(value.toLocaleLowerCase())
   })
 
-  const lastDataPage = currentPage * dataPage
-  const firstDataIndex = lastDataPage - dataPage
-  const currentData = filteredData.slice(firstDataIndex, lastDataPage)
+  // пагинация
+  const lastDataIndex = currentPage * dataPage
+  const firstDataIndex = lastDataIndex - dataPage
+  const currentData = filteredData.slice(firstDataIndex, lastDataIndex)
 
   const paginate = pageNumber => setCurrentPage(pageNumber)
 
-
   // сортировка каждого столбца
   const sortData = (field) => {
-    const copyData = filteredData.concat()
     if (dirSort) {
-      copyData.sort((a, b) => a[field] > b[field] ? 1 : -1)
+      filteredData.sort((a, b) => a[field] > b[field] ? 1 : -1)
     } else {
-      copyData.sort((a, b) => a[field] < b[field] ? 1 : -1)
+      filteredData.sort((a, b) => a[field] < b[field] ? 1 : -1)
     }
-    setData(copyData)
+    setData(filteredData)
     setDirSort(!dirSort)
   }
 
