@@ -39,7 +39,7 @@ function App() {
 
   // пагинация
   const lastDataIndex = currentPage * dataPage
-  const firstDataIndex = lastDataPage - dataPage
+  const firstDataIndex = lastDataIndex - dataPage
   const currentData = filteredData.slice(firstDataIndex, lastDataIndex)
 
   const paginate = pageNumber => setCurrentPage(pageNumber)
