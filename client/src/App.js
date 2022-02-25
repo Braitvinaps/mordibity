@@ -32,10 +32,8 @@ function App() {
     getData()
   }, [])
 
-  const copyData = data.concat()
-
-  // живой поиск
-  const filteredData = copyData.filter((name) => {
+   // поиск
+   const filteredData = data.filter((name) => {
     return name.territory.toLowerCase().includes(value.toLocaleLowerCase())
   })
 
